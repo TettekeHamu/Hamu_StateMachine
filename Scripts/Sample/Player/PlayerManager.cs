@@ -1,18 +1,13 @@
 using UnityEngine;
 
-namespace TettekeKobo.StatePatternTest
+namespace TettekeKobo.StateMachine.Sample
 {
     /// <summary>
     /// GameObject（Player）にアタッチするクラス
     /// </summary>
     public class PlayerManager : MonoBehaviour
     {
-        private PlayerStateMachine playerStateMachine;
-
-        private void Awake()
-        {
-            playerStateMachine = new PlayerStateMachine();
-        }
+        private readonly PlayerStateMachine playerStateMachine = new PlayerStateMachine();
 
         private void Start()
         {

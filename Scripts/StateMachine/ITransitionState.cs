@@ -12,12 +12,5 @@ namespace TettekeKobo.StateMachine
         /// </summary>
         /// <param name="stateType">変更したいStateを表すEnum</param>
         public void TransitionState(T1 stateType);
-
-        /// <summary>
-        /// EnumをIStateに変更する処理
-        /// </summary>
-        /// <param name="stateType">Enumを受け取る</param>
-        /// <returns>Stateを返す</returns>
-        public IState ConvertToState(T1 stateType);
     }
 }

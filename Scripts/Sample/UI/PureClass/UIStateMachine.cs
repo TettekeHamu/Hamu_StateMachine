@@ -1,7 +1,6 @@
-using TettekeKobo.StateMachine;
 using UnityEngine;
 
-namespace TettekeKobo.StatePatternTest
+namespace TettekeKobo.StateMachine.Sample
 {
     /// <summary>
     /// UIのStateMachine（抽象クラスを用いたパターン）

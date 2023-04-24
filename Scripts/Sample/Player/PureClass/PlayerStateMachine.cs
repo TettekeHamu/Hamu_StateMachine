@@ -1,7 +1,7 @@
 using TettekeKobo.StateMachine;
 using UnityEngine;
 
-namespace TettekeKobo.StatePatternTest
+namespace TettekeKobo.StateMachine.Sample
 {
     /// <summary>
     /// プレイヤーのStateMachine(Interfaceを用いたパターン)
@@ -39,7 +39,11 @@ namespace TettekeKobo.StatePatternTest
             currentState?.MyFixedUpdate();
         }
 
-        public void TransitionState(PlayerStateType stateType)
+        /// <summary>
+        /// Manager側からの実行を防ぐため、明示的実装にする
+        /// </summary>
+        /// <param name="stateType">変更したいStateを表すEnum</param>
+        void ITransitionState<PlayerStateType>.TransitionState(PlayerStateType stateType)
         {
             currentState.Exit();
             var newState = ConvertToState(stateType);

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TettekeKobo.StatePatternTest
+namespace TettekeKobo.StateMachine.Sample
 {
     /// <summary>
     /// GameObject（UIManager）にアタッチするクラス

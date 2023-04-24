@@ -1,7 +1,6 @@
-using TettekeKobo.StateMachine;
 using UnityEngine;
 
-namespace TettekeKobo.StatePatternTest
+namespace TettekeKobo.StateMachine.Sample
 {
     /// <summary>
     /// 青い画像を表示しているときのState
@@ -9,7 +8,7 @@ namespace TettekeKobo.StatePatternTest
     public class OpenBlueImageState : IState
     {
         private readonly ITransitionState<UIStateType> transitionState;
-        private UIChangeController uiChangeController;
+        private readonly UIChangeController uiChangeController;
         
         public OpenBlueImageState(ITransitionState<UIStateType> transitionState,UIChangeController uiChangeController)
         {
@@ -20,7 +19,7 @@ namespace TettekeKobo.StatePatternTest
         public void Enter()
         {
             Debug.Log("青色の画像を表示します");
-            uiChangeController.ChangeBlueImage(true);
+            uiChangeController.SetEnableBlueImage(true);
         }
 
         public void MyUpdate()
@@ -36,7 +35,7 @@ namespace TettekeKobo.StatePatternTest
 
         public void Exit()
         {
-            uiChangeController.ChangeBlueImage(false);
+            uiChangeController.SetEnableBlueImage(false);
         }
     }
 }

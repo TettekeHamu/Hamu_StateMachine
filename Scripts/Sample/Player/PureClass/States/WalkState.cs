@@ -1,7 +1,7 @@
 using TettekeKobo.StateMachine;
 using UnityEngine;
 
-namespace TettekeKobo.StatePatternTest
+namespace TettekeKobo.StateMachine.Sample
 {
     /// <summary>
     /// 移動中のState

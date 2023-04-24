@@ -1,4 +1,4 @@
-namespace TettekeKobo.StatePatternTest
+namespace TettekeKobo.StateMachine.Sample
 {
     /// <summary>
     /// プレイヤーのStateを表すEnum

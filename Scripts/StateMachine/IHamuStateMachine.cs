@@ -9,6 +9,13 @@ namespace TettekeKobo.StateMachine
     public interface IHamuStateMachine<in T1> where T1 : Enum
     {
         /// <summary>
+        /// EnumをIStateに変更する処理
+        /// </summary>
+        /// <param name="stateType">Enumを受け取る</param>
+        /// <returns>Stateを返す</returns>
+        public IState ConvertToState(T1 stateType);
+        
+        /// <summary>
         /// 初期化用の処理
         /// </summary>
         /// <param name="stateType">最初に設定したいStateのType</param>

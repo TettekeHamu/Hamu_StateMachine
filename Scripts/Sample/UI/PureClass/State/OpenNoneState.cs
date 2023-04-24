@@ -1,7 +1,6 @@
-using TettekeKobo.StateMachine;
 using UnityEngine;
 
-namespace TettekeKobo.StatePatternTest
+namespace TettekeKobo.StateMachine.Sample
 {
     /// <summary>
     /// 何も表示していない時のState
@@ -9,7 +8,7 @@ namespace TettekeKobo.StatePatternTest
     public class OpenNoneState : IState
     {
         private readonly ITransitionState<UIStateType> transitionState;
-        private UIChangeController uiChangeController;
+        private readonly UIChangeController uiChangeController;
         
         public OpenNoneState(ITransitionState<UIStateType> transitionState,UIChangeController uiChangeController)
         {

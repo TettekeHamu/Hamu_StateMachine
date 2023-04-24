@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace TettekeKobo.StatePatternTest
+namespace TettekeKobo.StateMachine.Sample
 {
     /// <summary>
     /// UIの表示・非表示をおこなうクラス
@@ -11,12 +11,12 @@ namespace TettekeKobo.StatePatternTest
         [SerializeField] private Image redImage;
         [SerializeField] private Image blueImage;
 
-        public void ChangeRedImage(bool canView)
+        public void SetEnableRedImage(bool canView)
         {
             redImage.gameObject.SetActive(canView);
         }
 
-        public void ChangeBlueImage(bool canView)
+        public void SetEnableBlueImage(bool canView)
         {
             blueImage.gameObject.SetActive(canView);
         }
