@@ -18,7 +18,7 @@ namespace TettekeKobo.StateMachine.Sample
             openRedImageState = new OpenRedImageState(this, uiChangeController);
         }
 
-        public override IState ConvertToState(UIStateType stateType)
+        protected override IState ConvertToState(UIStateType stateType)
         {
             switch (stateType)
             {

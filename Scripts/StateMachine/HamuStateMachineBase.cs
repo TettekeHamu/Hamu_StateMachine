@@ -5,42 +5,42 @@ namespace TettekeKobo.StateMachine
     /// <summary>
     /// StateMachineの親クラス
     /// </summary>
-    /// <typeparam name="T1">変更したいIStateに対応するEnum</typeparam>
-    public abstract class HamuStateMachineBase<T1> : ITransitionState<T1> where T1 : Enum
+    /// <typeparam name="T">変更したいIStateに対応するEnum</typeparam>
+    public abstract class HamuStateMachineBase<T> : ITransitionState<T> where T : Enum
     {
         /// <summary>
         /// 現在のState
         /// </summary>
-        private IState currentStare;
+        private IState currentState;
 
         /// <summary>
         /// EnumをIStateに変更する処理(abstractなメソッド)
         /// </summary>
         /// <param name="stateType">Enumを受け取る</param>
         /// <returns>Stateを返す</returns>
-        public abstract IState ConvertToState(T1 stateType);
+        protected abstract IState ConvertToState(T stateType);
         
         /// <summary>
         /// Stateを変更する処理,外部から操作されないように明示的実装
         /// </summary>
         /// <param name="stateType">変更したいStateを表すEnum</param>
-        void ITransitionState<T1>.TransitionState(T1 stateType)
+        void ITransitionState<T>.TransitionState(T stateType)
         {
-            currentStare.Exit();
+            currentState.Exit();
             var newState = ConvertToState(stateType);
-            currentStare = newState;
-            currentStare.Enter();
+            currentState = newState;
+            currentState.Enter();
         }
 
         /// <summary>
         /// 初期化用の処理
         /// </summary>
         /// <param name="stateType">最初に設定したいStateのType</param>
-        public void Initialize(T1 stateType)
+        public void Initialize(T stateType)
         {
             var startState = ConvertToState(stateType);
-            currentStare = startState;
-            currentStare.Enter();
+            currentState = startState;
+            currentState.Enter();
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace TettekeKobo.StateMachine
         /// </summary>
         public void MyUpdate()
         {
-            currentStare.MyUpdate();
+            currentState.MyUpdate();
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace TettekeKobo.StateMachine
         /// </summary>
         public void MyFixedUpdate()
         {
-            currentStare.MyFixedUpdate();
+            currentState.MyFixedUpdate();
         }
     }
 }
