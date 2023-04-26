@@ -13,7 +13,7 @@ namespace TettekeKobo.StateMachine
         /// </summary>
         /// <param name="stateType">Enumを受け取る</param>
         /// <returns>Stateを返す</returns>
-        public IState ConvertToState(T stateType);
+        public IState GetStateFromEnum(T stateType);
         
         /// <summary>
         /// 初期化用の処理

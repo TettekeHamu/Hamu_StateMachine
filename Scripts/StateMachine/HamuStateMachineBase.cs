@@ -18,7 +18,7 @@ namespace TettekeKobo.StateMachine
         /// </summary>
         /// <param name="stateType">Enumを受け取る</param>
         /// <returns>Stateを返す</returns>
-        protected abstract IState ConvertToState(T stateType);
+        protected abstract IState GetStateFromEnum(T stateType);
         
         /// <summary>
         /// Stateを変更する処理,外部から操作されないように明示的実装
@@ -27,7 +27,7 @@ namespace TettekeKobo.StateMachine
         void ITransitionState<T>.TransitionState(T stateType)
         {
             currentState.Exit();
-            var newState = ConvertToState(stateType);
+            var newState = GetStateFromEnum(stateType);
             currentState = newState;
             currentState.Enter();
         }
@@ -38,7 +38,7 @@ namespace TettekeKobo.StateMachine
         /// <param name="stateType">最初に設定したいStateのType</param>
         public void Initialize(T stateType)
         {
-            var startState = ConvertToState(stateType);
+            var startState = GetStateFromEnum(stateType);
             currentState = startState;
             currentState.Enter();
         }

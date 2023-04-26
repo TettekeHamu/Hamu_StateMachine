@@ -24,7 +24,7 @@ namespace TettekeKobo.StateMachine.Sample
 
         public void Initialize(PlayerStateType stateType)
         {
-            var startState = ConvertToState(stateType);
+            var startState = GetStateFromEnum(stateType);
             currentState = startState;
             currentState.Enter();
         }
@@ -46,12 +46,12 @@ namespace TettekeKobo.StateMachine.Sample
         void ITransitionState<PlayerStateType>.TransitionState(PlayerStateType stateType)
         {
             currentState.Exit();
-            var newState = ConvertToState(stateType);
+            var newState = GetStateFromEnum(stateType);
             currentState = newState;
             currentState.Enter();
         }
 
-        public IState ConvertToState(PlayerStateType stateType)
+        public IState GetStateFromEnum(PlayerStateType stateType)
         {
             switch (stateType)
             {
